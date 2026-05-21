@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Route Optimizer</title>
+
+    <style>
+
+        body {
+
+            font-family: Arial;
+
+            background: #0f172a;
+
+            color: white;
+
+            padding: 40px;
+        }
+
+        .container {
+
+            width: 900px;
+
+            margin: auto;
+
+            background: #1e293b;
+
+            padding: 30px;
+
+            border-radius: 20px;
+        }
+
+        h1 {
+
+            text-align: center;
+
+            margin-bottom: 30px;
+
+            color: #38bdf8;
+        }
+
+        .route {
+
+            margin-bottom: 30px;
+
+            padding: 20px;
+
+            background: #334155;
+
+            border-radius: 15px;
+        }
+
+        input,
+        select {
+
+            width: 100%;
+
+            padding: 12px;
+
+            margin-top: 10px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background: #475569;
+
+            color: white;
+        }
+
+        button {
+
+            width: 100%;
+
+            padding: 15px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background: #38bdf8;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Route Optimizer</h1>
+
+        <form action="/optimize" method="POST">
+
+            {% for route in ['A','B','C'] %}
+
+            <div class="route">
+
+                <h2>Route {{ route }}</h2>
+
+                <input type="number"
+                       name="distance_{{ route }}"
+                       placeholder="Distance">
+
+                <select name="traffic_{{ route }}">
+
+                    <option>Low</option>
+
+                    <option>Medium</option>
+
+                    <option>High</option>
+
+                </select>
+
+                <select name="weather_{{ route }}">
+
+                    <option>Clear</option>
+
+                    <option>Cloudy</option>
+
+                    <option>Rainy</option>
+
+                </select>
+
+            </div>
+
+            {% endfor %}
+
+            <button type="submit">
+
+                Optimize Route
+            </button>
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>

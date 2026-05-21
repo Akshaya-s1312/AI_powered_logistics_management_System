@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>History</title>
+
+    <style>
+
+        body {
+
+            font-family: Arial;
+
+            background: #0f172a;
+
+            color: white;
+
+            padding: 40px;
+        }
+
+        table {
+
+            width: 100%;
+
+            border-collapse: collapse;
+
+            margin-top: 30px;
+        }
+
+        th,
+        td {
+
+            padding: 15px;
+
+            border-bottom: 1px solid #334155;
+
+            text-align: center;
+        }
+
+        th {
+
+            background: #1e293b;
+        }
+
+        tr:hover {
+
+            background: #1e293b;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Prediction History</h1>
+
+    <table>
+
+        <tr>
+
+            <th>Order ID</th>
+
+            <th>Partner</th>
+
+            <th>Distance</th>
+
+            <th>Prediction</th>
+
+            <th>Status</th>
+
+        </tr>
+
+        {% for row in records %}
+
+        <tr>
+
+            <td>{{ row.order_id }}</td>
+
+            <td>{{ row.delivery_partner }}</td>
+
+            <td>{{ row.distance_km }}</td>
+
+            <td>{{ row.predicted_time_minutes }}</td>
+
+            <td>{{ row.status }}</td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</body>
+
+</html>

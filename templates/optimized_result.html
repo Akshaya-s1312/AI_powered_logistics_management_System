@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Optimized Result</title>
+
+    <style>
+
+        body {
+
+            font-family: Arial;
+
+            background: #0f172a;
+
+            color: white;
+
+            padding: 40px;
+        }
+
+        .card {
+
+            background: #1e293b;
+
+            padding: 30px;
+
+            border-radius: 20px;
+
+            margin-bottom: 20px;
+        }
+
+        .best {
+
+            border: 3px solid #22c55e;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Optimized Route Result</h1>
+
+    {% for route in routes %}
+
+    <div class="card
+    {% if route.route == best_route.route %}
+    best
+    {% endif %}
+    ">
+
+        <h2>Route {{ route.route }}</h2>
+
+        <p>Distance: {{ route.distance }}</p>
+
+        <p>Traffic: {{ route.traffic }}</p>
+
+        <p>Weather: {{ route.weather }}</p>
+
+        <p>ETA: {{ route.eta }} mins</p>
+
+    </div>
+
+    {% endfor %}
+
+</body>
+
+</html>

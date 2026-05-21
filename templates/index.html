@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Smart Logistics AI</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+
+            font-family: Arial, sans-serif;
+
+            background: #0f172a;
+
+            color: white;
+
+            min-height: 100vh;
+        }
+
+        .navbar {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            padding: 20px 50px;
+
+            background: #111827;
+        }
+
+        .logo {
+
+            font-size: 28px;
+
+            font-weight: bold;
+
+            color: #38bdf8;
+        }
+
+        .nav-links a {
+
+            text-decoration: none;
+
+            color: white;
+
+            margin-left: 20px;
+
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+
+            color: #38bdf8;
+        }
+
+        .main-container {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 50px;
+        }
+
+        .card {
+
+            width: 900px;
+
+            background: #1e293b;
+
+            padding: 40px;
+
+            border-radius: 20px;
+
+            box-shadow: 0px 0px 20px rgba(0,0,0,0.4);
+        }
+
+        h1 {
+
+            text-align: center;
+
+            margin-bottom: 30px;
+
+            color: #38bdf8;
+        }
+
+        form {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 20px;
+        }
+
+        input,
+        select {
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background: #334155;
+
+            color: white;
+
+            font-size: 15px;
+        }
+
+        input::placeholder {
+
+            color: #cbd5e1;
+        }
+
+        button {
+
+            grid-column: span 2;
+
+            padding: 15px;
+
+            border: none;
+
+            border-radius: 12px;
+
+            background: #38bdf8;
+
+            color: black;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        button:hover {
+
+            background: #0ea5e9;
+        }
+
+        .result-box {
+
+            margin-top: 30px;
+
+            background: #334155;
+
+            padding: 25px;
+
+            border-radius: 15px;
+        }
+
+        .result-box h2 {
+
+            margin-bottom: 15px;
+        }
+
+        .status {
+
+            color: #4ade80;
+
+            font-size: 22px;
+
+            font-weight: bold;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="navbar">
+
+        <div class="logo">
+
+            Smart Logistics AI
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/">Home</a>
+
+            <a href="/history">History</a>
+
+            <a href="/dashboard">Dashboard</a>
+
+            <a href="/route_optimizer">Route Optimizer</a>
+
+        </div>
+
+    </div>
+
+    <div class="main-container">
+
+        <div class="card">
+
+            <h1>Delivery Time Prediction</h1>
+
+            <form action="/predict" method="POST">
+
+                <select name="delivery_partner" required>
+
+                    <option value="">Delivery Partner</option>
+
+                    <option>delhivery</option>
+
+                    <option>xpressbees</option>
+
+                    <option>shadowfax</option>
+
+                    <option>dhl</option>
+
+                    <option>amazon logistics</option>
+
+                    <option>blue dart</option>
+
+                    <option>fedex</option>
+
+                    <option>ecom express</option>
+
+                </select>
+
+                <select name="package_type" required>
+
+                    <option value="">Package Type</option>
+
+                    <option>electronics</option>
+
+                    <option>clothing</option>
+
+                    <option>groceries</option>
+
+                    <option>documents</option>
+
+                    <option>pharmacy</option>
+
+                </select>
+
+                <select name="vehicle_type" required>
+
+                    <option value="">Vehicle Type</option>
+
+                    <option>bike</option>
+
+                    <option>truck</option>
+
+                    <option>van</option>
+
+                    <option>ev bike</option>
+
+                    <option>ev van</option>
+
+                    <option>scooter</option>
+
+                </select>
+
+                <select name="delivery_mode" required>
+
+                    <option value="">Delivery Mode</option>
+
+                    <option>same day</option>
+
+                    <option>express</option>
+
+                    <option>two day</option>
+
+                </select>
+
+                <select name="region" required>
+
+                    <option value="">Region</option>
+
+                    <option>north</option>
+
+                    <option>south</option>
+
+                    <option>east</option>
+
+                    <option>west</option>
+
+                    <option>central</option>
+
+                </select>
+
+                <select name="weather_condition" required>
+
+                    <option value="">Weather</option>
+
+                    <option>clear</option>
+
+                    <option>cold</option>
+
+                    <option>rainy</option>
+
+                    <option>foggy</option>
+
+                    <option>hot</option>
+
+                </select>
+
+                <input type="number"
+                       name="distance_km"
+                       placeholder="Distance (KM)"
+                       required>
+
+                <input type="number"
+                       name="package_weight_kg"
+                       placeholder="Package Weight (KG)"
+                       required>
+
+                <button type="submit">
+
+                    Predict Delivery
+                </button>
+
+            </form>
+
+            {% if prediction_text %}
+
+            <div class="result-box">
+
+                <h2>{{ prediction_text }}</h2>
+
+                <h2>{{ delay_text }}</h2>
+
+                <h2>Order ID: {{ order_id }}</h2>
+
+                <div class="status">
+
+                    {{ status }}
+                </div>
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Dashboard</title>
+
+    <style>
+
+        body {
+
+            font-family: Arial;
+
+            background: #0f172a;
+
+            color: white;
+
+            padding: 40px;
+        }
+
+        h1 {
+
+            text-align: center;
+
+            color: #38bdf8;
+
+            margin-bottom: 40px;
+        }
+
+        .cards {
+
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 25px;
+        }
+
+        .card {
+
+            background: #1e293b;
+
+            padding: 30px;
+
+            border-radius: 20px;
+
+            text-align: center;
+        }
+
+        .card h2 {
+
+            font-size: 40px;
+
+            margin-bottom: 10px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Analytics Dashboard</h1>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <h2>{{ total_orders }}</h2>
+
+            <p>Total Orders</p>
+
+        </div>
+
+        <div class="card">
+
+            <h2>{{ avg_time }}</h2>
+
+            <p>Average Delivery Time</p>
+
+        </div>
+
+        <div class="card">
+
+            <h2>{{ delayed_orders }}</h2>
+
+            <p>Delayed Orders</p>
+
+        </div>
+
+        <div class="card">
+
+            <h2>{{ ontime_orders }}</h2>
+
+            <p>On-Time Orders</p>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
